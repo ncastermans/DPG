@@ -5,4 +5,5 @@ export interface ItemVisitor {
   visitAgedBrie(item: Item): void;
   visitBackstagePass(item: Item): void;
   visitLegendaryItem(item: Item): void;
+  visitConjuredItem(item: Item): void;
 }

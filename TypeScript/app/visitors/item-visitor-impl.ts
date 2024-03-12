@@ -31,6 +31,12 @@ export class ItemVisitorImpl implements ItemVisitor {
     item.quality = 80;
   }
 
+  visitConjuredItem(item: Item) {
+    this.updateSellIn(item);
+    const qualityDelta = item.sellIn < 0 ? -4 : -2;
+    this.updateQuality(item, qualityDelta);
+  }
+
   private updateSellIn(item: Item) {
     item.sellIn--;
   }
