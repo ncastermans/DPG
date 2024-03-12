@@ -1,7 +1,7 @@
 package com.gildedrose.item;
 
 public class BaseItem {
-    protected final int MAX_QUALITY = 50;
+    protected int MAX_QUALITY = 50;
     protected final int MIN_QUALITY = 0;
     protected final int SELL_IN_DELTA = 1;
     protected final int QUALITY_DELTA = 1;
