@@ -11,6 +11,8 @@ public class ItemFactory {
                 return new LegendaryItem(item);
             case "Backstage passes to a TAFKAL80ETC concert":
                 return new BackstagePass(item);
+            case "Conjured Mana Cake":
+                return new ConjuredItem(item);
             default:
                 return new BaseItem(item);
         }
