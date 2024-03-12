@@ -12,11 +12,10 @@ public class BaseItem {
         this.item = item;
     }
 
-    public Item update() {
-        updateQuality();
+    public void update() {
         updateSellIn();
+        updateQuality();
         validateQuality();
-        return item;
     }
 
     protected void updateQuality() {
