@@ -23,6 +23,9 @@ export class GildedRose {
         case 'Sulfuras, Hand of Ragnaros':
           this.visitor.visitLegendaryItem(item);
           break;
+        case 'Conjured Mana Cake':
+          this.visitor.visitConjuredItem(item);
+          break;
         default:
           this.visitor.visitBaseItem(item);
       }
