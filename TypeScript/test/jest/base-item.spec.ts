@@ -1,5 +1,5 @@
-import {GildedRose} from '@/gilded-rose';
-import {Item} from '@/models/item';
+import { GildedRose } from '@/gilded-rose';
+import { Item } from '@/models/item';
 
 describe('Base Item', () => {
   it('should lower sellIn and quality at the end of the day', () => {

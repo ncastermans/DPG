@@ -1,5 +1,5 @@
-import {GildedRose} from '@/gilded-rose';
-import {Item} from '@/models/item';
+import { GildedRose } from '@/gilded-rose';
+import { Item } from '@/models/item';
 
 describe('Aged Brie', () => {
   it('should lower sellIn and increase quality at the end of the day', () => {

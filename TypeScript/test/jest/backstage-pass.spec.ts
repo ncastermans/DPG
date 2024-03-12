@@ -1,5 +1,5 @@
-import {GildedRose} from '@/gilded-rose';
-import {Item} from '@/models/item';
+import { GildedRose } from '@/gilded-rose';
+import { Item } from '@/models/item';
 
 describe('Backstage passes to a TAFKAL80ETC concert', () => {
   it('should increase quality by 2 when there are 10 days or less', () => {
