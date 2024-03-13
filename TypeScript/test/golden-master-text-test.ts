@@ -1,5 +1,7 @@
-import { GildedRose } from '@/gilded-rose';
-import { Item } from '@/models/item';
+import { GildedRose } from "../app/gilded-rose";
+import { Item } from "../app/models/item";
+
+
 
 console.log('OMGHAI!');
 
