@@ -14,9 +14,9 @@ public class BackstagePass extends BaseItem {
 
         int qualityDelta = 1;
 
-        if (item.sellIn <= 5) {
+        if (item.sellIn < 5) {
             qualityDelta = 3;
-        } else if (item.sellIn <= 10) {
+        } else if (item.sellIn < 10) {
             qualityDelta = 2;
         }
 
