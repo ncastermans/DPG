@@ -19,7 +19,7 @@ describe('GildedRose', () => {
 
     const gildedRose = new GildedRose(items);
 
-    let days = 30;
+    const days = 30;
 
     for (let i = 0; i < days + 1; i++) {
       gildedRose.updateQuality();
