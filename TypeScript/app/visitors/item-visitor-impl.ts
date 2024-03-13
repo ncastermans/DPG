@@ -2,22 +2,26 @@ import { Item } from '../models/item';
 import { ItemVisitor } from './item-visitor';
 
 export class ItemVisitorImpl implements ItemVisitor {
-  visitBaseItem(item: Item) {
-    this.updateSellIn(item);
+  private readonly MIN_QUALITY = 0;
+  private readonly MAX_QUALITY = 50;
+  private readonly LEGENDARY_QUALITY = 80;
+
+  visitBaseItem(item: Item): void {
+    this.decrementSellIn(item);
     const qualityDelta = item.sellIn < 0 ? -2 : -1;
     this.updateQuality(item, qualityDelta);
   }
 
-  visitAgedBrie(item: Item) {
-    this.updateSellIn(item);
+  visitAgedBrie(item: Item): void {
+    this.decrementSellIn(item);
     const qualityDelta = item.sellIn >= 0 ? 1 : 2;
     this.updateQuality(item, qualityDelta);
   }
 
-  visitBackstagePass(item: Item) {
-    this.updateSellIn(item);
+  visitBackstagePass(item: Item): void {
+    this.decrementSellIn(item);
     if (item.sellIn < 0) {
-      item.quality = 0;
+      item.quality = this.MIN_QUALITY;
     } else if (item.sellIn < 5) {
       this.updateQuality(item, 3);
     } else if (item.sellIn < 10) {
@@ -27,21 +31,24 @@ export class ItemVisitorImpl implements ItemVisitor {
     }
   }
 
-  visitLegendaryItem(item: Item) {
-    item.quality = 80;
+  visitLegendaryItem(item: Item): void {
+    item.quality = this.LEGENDARY_QUALITY;
   }
 
-  visitConjuredItem(item: Item) {
-    this.updateSellIn(item);
+  visitConjuredItem(item: Item): void {
+    this.decrementSellIn(item);
     const qualityDelta = item.sellIn < 0 ? -4 : -2;
     this.updateQuality(item, qualityDelta);
   }
 
-  private updateSellIn(item: Item) {
+  private decrementSellIn(item: Item): void {
     item.sellIn--;
   }
 
-  private updateQuality(item: Item, delta: number) {
-    item.quality = Math.min(50, Math.max(0, item.quality + delta));
+  private updateQuality(item: Item, delta: number): void {
+    item.quality = Math.min(
+      this.MAX_QUALITY,
+      Math.max(this.MIN_QUALITY, item.quality + delta)
+    );
   }
 }

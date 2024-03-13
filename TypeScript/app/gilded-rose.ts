@@ -3,15 +3,15 @@ import { ItemVisitor } from './visitors/item-visitor';
 import { ItemVisitorImpl } from './visitors/item-visitor-impl';
 
 export class GildedRose {
-  items: Array<Item>;
+  items: Item[];
   private visitor: ItemVisitor;
 
-  constructor(items: Array<Item>) {
+  constructor(items: Item[]) {
     this.items = items;
     this.visitor = new ItemVisitorImpl();
   }
 
-  updateQuality() {
+  updateQuality(): Item[] {
     for (const item of this.items) {
       switch (item.name) {
         case 'Aged Brie':
